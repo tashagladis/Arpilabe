@@ -47,9 +47,9 @@
 
                 <div class="form-group">
 
-                    <button *ngIf="personne.ID==0" class="btn btn-success btn-lg btn-block" type="submit"
+                    <button *ngIf="personne.ID==null" class="btn btn-success btn-lg btn-block" type="submit"
                         (click)="createPersonne()"><i class="fas fa-database"></i>Register</button>
-                    <button *ngIf="personne.ID!=0" class="btn btn-success btn-lg btn-block" type="submit"
+                    <button *ngIf="personne.ID>0" class="btn btn-success btn-lg btn-block" type="submit"
                         (click)="updatePersonne()"><i class="fas fa-database"></i>Update</button>
                 </div>
 
@@ -58,7 +58,7 @@
     </div>
 
     <div *ngIf="submitted">
-        <h3>Operation Done, Good!</h3>
+        <h3>Operation Done, Good !</h3>
         <button class="btn btn-success" (click)="newProduct()">New..</button>
     </div>
 </div>
