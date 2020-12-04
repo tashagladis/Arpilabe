@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Personne } from '../Share/personne.model';
 
 @Component({
   selector: 'app-personnes',
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class PersonnesComponent implements OnInit {
-
+  @Input() personToEdit: any;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  getPersonToEdit(valeur: any) {
+    this.personToEdit = valeur;
   }
 
 }

@@ -3,10 +3,10 @@
     <hr>
     <div class="row">
         <div class="col-md-5">
-            <app-personne-detail></app-personne-detail> 
+            <app-personne-detail [personne]="personToEdit"></app-personne-detail> 
         </div>
         <div class="col-md-7">
-            <app-personne-detail-list></app-personne-detail-list>
+            <app-personne-detail-list (personToEdit)="getPersonToEdit($event)"></app-personne-detail-list>
         </div>
     </div>
 </div>

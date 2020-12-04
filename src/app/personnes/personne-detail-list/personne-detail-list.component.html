@@ -1,70 +1,64 @@
 <div class="row">
-    <div class="col-md-5">
-        <form  autocomplete="off">
-            <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text bg-white">
-                            <i class="fas fa-search"></i>
-                        </div>
-                    </div>
-                </div>
-                <input name="Search"   class="form-control" placeholder="Search" >
+  <div class="col-md-12">
+    <form autocomplete="off">
+      <div class="form-group">
+
+        <input name="Search" class="form-control" placeholder="Search" placeholder="Search by name" [(ngModel)]="name">
+        <div class="input-group-append">
+          <button class="btn btn-success" type="button" (click)="searchByName()">
+            Search
+          </button>
         </div>
-        <div class="form-group">
-            <label for="select">Select:</label>
-            <select multiple class="form-control" id="exampleFormControlSelect2">
-              
-              <option>IT</option>
-              <option>Direction</option>
-              <option>Marketing</option>
-              
-            </select>
-          </div>
-          <div class="form-row align-items-center">
-            <div class="col-auto my-1">
-              <label class="mr-sm-2" for="inlineFormCustomSelect">Sort</label>
-              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                <option selected>By...</option>
-                <option value="1">Lastname</option>
-                <option value="2">Departement</option>
-                <option value="3">Email</option>
-              </select>
-              </div>
-            </div>
-        
-        </form>
-    </div>
+      </div>
+      <div class="form-group">
+        <label for="select">Select:</label>
+        <select [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}" (click)="SelectDepartement()">
+          <option *ngFor="let c of departements" [ngValue]="c.name">{{c.name}}</option>
+        </select>
+      </div>
+      <div class="form-row align-items-center">
+        <div class="col-auto my-1">
+          <label class="mr-sm-2" for="inlineFormCustomSelect">Sort</label>
+          <select class="form-control" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <option value="lastname">Lastname</option>
+            <option value="departement">Departement</option>
+            <option value="email">Email</option>
+          </select>
+        </div>
+      </div>
 
-    <div class="col-md-15">
-        <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Firstname</th>
-                <th scope="col">Lastname</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Departement</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor = "let op of personnes">
-                <td>{{op.Firstname}}</td>
-                <td>{{op.Lastname}}</td>
-                <td>{{op.Phone}}</td>
-                <td>{{op.Departement}}</td>
-                <td>
-                    <i class="fas fa-edit fa-lg "></i>
-                </td>
-                <td > 
-                    <i class="far fa-trash-alt fa-lg text-danger">
+    </form>
+  </div>
 
-                    </i>
-                </td>
-                
-              </tr>
-           
-            
-            </tbody>
-          </table>
-    </div>
+  <div class="col-md-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Firstname</th>
+          <th scope="col">Lastname</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Departement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let op of personnes">
+          <td>{{op.Firstname}}</td>
+          <td>{{op.Lastname}}</td>
+          <td>{{op.Phone}}</td>
+          <td>{{op.Departement}}</td>
+          <td>
+            <i class="fas fa-edit fa-lg " (click)="setCurrentProduct(op,op.ID)"></i>
+          </td>
+          <td>
+            <i class="far fa-trash-alt fa-lg text-danger" (click)="deleteProduct(op.ID)">
+
+            </i>
+          </td>
+
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>
 </div>

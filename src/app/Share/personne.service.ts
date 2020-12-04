@@ -30,13 +30,20 @@ create(data: any): Observable<any> {
 }
 
 delete(id : any): Observable<any> {
-  return this.link.delete(`${this.ApiServe}/${id}`);
+  return this.link.delete(`https://localhost:5001/api/personne/${id}`);
 }
 searchByName(name : any): Observable<any> {
-  return this.link.get(`${this.search}?lastname=${name}`);
+  return this.link.get(`https://localhost:5001/api/personne/search?lastname=${name}`);
+}
+
+SelectDepartement(departement: any): Observable<any> {
+  return this.link.get(`https://localhost:5001/api/personne/search?departement=${departement}`);
+}
+Sort(colonne: any): Observable<any> {
+  return this.link.get(`https://localhost:5001/api/personne/search?asc=${colonne}`);
 }
 update(id : any, data : any): Observable<any> {
-  return this.link.put(`${this.ApiServe}/${id}`, data);
+  return this.link.put(`https://localhost:5001/api/personne/${id}`, data);
 }
 
 

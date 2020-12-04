@@ -1,52 +1,64 @@
-<div style="width: 500px; margin: auto;">
+<div style="width: 100%; margin: auto;">
     <div class="submit-form">
         <div *ngIf="!submitted">
-    <form  autocomplete="off">
-    <div class="form-group">
-  
-        <input name="Lastname"   class="form-control" placeholder="Le Nom" [(ngModel)]="personne.Lastname">
-    </div>
- 
+            <form autocomplete="off">
+                <div class="form-group">
 
-    <div class="form-group">
-  
-        <input name="Firstname"   class="form-control" placeholder="Le Prenom" required [(ngModel)]="personne.Firstname">
-    </div>
-    <div class="form-group">
-       
-        <input name="Email"   class="form-control" placeholder="Email" [(ngModel)]="personne.Email">
-    </div>
+                    <input name="Lastname" class="form-control" placeholder="Lastname" [(ngModel)]="personne.Lastname">
+                </div>
 
-    <div class="form-group">
-       
-        <input name="Phone"   class="form-control" placeholder="Phone" [(ngModel)]="personne.Phone">
-    </div>
-    <div class="form-group">
-     
-        <input name="Birthday"   class="form-control" placeholder="DD/MM/YYYY" required [(ngModel)]="personne.Birthday">
-    </div>
 
-    <div class="form-group">
-   
-        <input name="Departement"   class="form-control" placeholder="Departement" required [(ngModel)]="personne.Departement">
-    </div>
+                <div class="form-group">
 
-    <div class="form-group">
-  
-        <input name="Note"   class="form-control" placeholder="Note" required [(ngModel)]="personne.Note">
-    </div>
+                    <input name="Firstname" class="form-control" placeholder="Firstname" required
+                        [(ngModel)]="personne.Firstname">
+                </div>
+                <div class="form-group">
 
-    <div class="form-group">
-      
-        <button class="btn btn-success btn-lg btn-block" type="submit" (click)="createPersonne()"><i class="fas fa-database"></i>Envoyer</button>
-    </div>
-    
-</form>
-</div>
+                    <input name="Email" class="form-control" placeholder="Mail" [(ngModel)]="personne.Email">
+                </div>
+
+                <div class="form-group">
+
+                    <input name="Phone" class="form-control" placeholder="Phone" [(ngModel)]="personne.Phone">
+                </div>
+                <div class="form-group">
+
+                    <input name="Birthday" type="datetime-local" class="form-control" placeholder="DD/MM/YYYY" required
+                        [(ngModel)]="personne.Birthday">
+                </div>
+
+                <div class="form-group">
+
+                    <select class="Departement" name="Departement" required [(ngModel)]="personne.Departement"
+                        placeholder="Departement">
+
+                        <option>IT</option>
+                        <option>Direction</option>
+                        <option>Marketing</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <input name="Note" class="form-control" placeholder="Note" required [(ngModel)]="personne.Note">
+                </div>
+
+                <div class="form-group">
+
+                    <button *ngIf="personne.ID==0" class="btn btn-success btn-lg btn-block" type="submit"
+                        (click)="createPersonne()"><i class="fas fa-database"></i>Register</button>
+                    <button *ngIf="personne.ID!=0" class="btn btn-success btn-lg btn-block" type="submit"
+                        (click)="updatePersonne()"><i class="fas fa-database"></i>Update</button>
+                </div>
+
+            </form>
+        </div>
     </div>
 
     <div *ngIf="submitted">
         <h3>You successfully created a Personne!</h3>
         <button class="btn btn-success" (click)="newProduct()">New..</button>
-      </div>
     </div>
+</div>
