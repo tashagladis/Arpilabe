@@ -19,14 +19,20 @@ export class PersonneDetailListComponent implements OnInit {
   currentIndex = -1;
   name = '';
   departement = '';
-  colonne = '';
+ 
 
   departements = [
     { id: 1, name: "IT" },
     { id: 2, name: "Marketing" },
     { id: 3, name: "Direction" }
   ];
+  colonnes = [
+    { id: 1, name: "Lastname" },
+    { id: 2, name: "Departement" },
+    { id: 3, name: "Email" }
+  ];
   selectedValue = null;
+  colonne = null;
 
   constructor(public service: PersonneService) { }
 
@@ -97,6 +103,6 @@ export class PersonneDetailListComponent implements OnInit {
         },
         error => {
           console.log(error);
-        });
+      });
   }
 }

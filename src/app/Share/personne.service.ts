@@ -40,7 +40,7 @@ SelectDepartement(departement: any): Observable<any> {
   return this.link.get(`https://localhost:5001/api/personne/search?departement=${departement}`);
 }
 Sort(colonne: any): Observable<any> {
-  return this.link.get(`https://localhost:5001/api/personne/search?asc=${colonne}`);
+  return this.link.get(`https://localhost:5001/api/personne/sort?asc=${colonne}`);
 }
 update(id : any, data : any): Observable<any> {
   return this.link.put(`https://localhost:5001/api/personne/${id}`, data);
